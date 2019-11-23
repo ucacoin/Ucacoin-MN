@@ -5,7 +5,7 @@ Need a fresh VPS ubuntu(16x or 18x) with atleast 1 Gb RAM and 15 Gbs free space
 
 1. download the file: 
 ```
-https://github.com/ucacoin/Ucacoin-MN.git
+git clone https://github.com/ucacoin/Ucacoin-MN.git
 cd Ucacoin-MN
 ```
 2. change the permissions:
