@@ -10,7 +10,10 @@ cd Ucacoin-MN
 ```
 2. change the permissions:
 ```
-chmod +x mn18.sh
+chmod +x mn18.sh (in case of Ubuntu 18)
+OR
+chmod +x mn16.sh (in case of Ubuntu 16)
+
 ```
 3. prepare the windows wallet:
 - go to debug console and type:
