@@ -1,16 +1,18 @@
 #!/bin/bash
 
 TMP_FOLDER=$(mktemp -d)
-CONFIG_FILE='Ucacoin.conf'
-CONFIGFOLDER='/root/.Ucacoin'
+CONFIG_FILE='ucacoin.conf'
+CONFIGFOLDER='/root/.ucacoin'
 COIN_DAEMON='ucacoind'
 COIN_CLI='ucacoin-cli'
 COIN_PATH='/usr/local/bin/'
-COIN_REPO='https://github.com/ucacoin/Ucacoin'
-COIN_TGZ='https://github.com/ucacoin/Ucacoin/releases/download/1.3.2.0/ucacoin.tar.gz'
+COIN_REPO='https://github.com/ucacoin/Ucacoin2'
+COIN_TGZ='https://github.com/ucacoin/Ucacoin2/releases/download/v3/ucacoind_ubuntu16.04.tar.gz'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
+COIN_BOOTSTRAP='http://178.128.98.125/bootstrap.tar.gz'
+BOOTSTRAP_ZIP=$(echo $COIN_BOOTSTRAP | awk -F'/' '{print $NF}')
 SENTINEL_REPO='N/A'
-COIN_NAME='Ucacoin'
+COIN_NAME='ucacoin'
 COIN_PORT=33210
 RPC_PORT=33211
 
@@ -28,15 +30,15 @@ MAG='\e[1;35m'
 purgeOldInstallation() {
     echo -e "${GREEN}Searching and removing old $COIN_NAME files and configurations${NC}"
     #kill wallet daemon
-    sudo systemctl stop Ucacoin > /dev/null 2>&1
-    sudo killall Ucacoind > /dev/null 2>&1
+    sudo systemctl stop ucacoin > /dev/null 2>&1
+    sudo killall ucacoind > /dev/null 2>&1
     #remove old ufw port allow
     sudo ufw delete allow 33210/tcp > /dev/null 2>&1
     #remove old files
-    if [ -d "~/.Ucacoin" ]; then
-        sudo rm -rf ~/.Ucacoin > /dev/null 2>&1
+    if [ -d "~/.ucacoin" ]; then
+        sudo rm -rf ~/.ucacoin > /dev/null 2>&1
     fi
-    #remove binaries and Ucacoinutilities
+    #remove binaries and ucacoinutilities
     cd /usr/local/bin && sudo rm ucacoin-cli ucacoind > /dev/null 2>&1 && cd
     echo -e "${GREEN}* Done${NONE}";
 }
@@ -48,7 +50,7 @@ function download_node() {
   wget -q $COIN_TGZ
   #compile_error
   tar xvzf $COIN_ZIP >/dev/null 2>&1
-  cd Ucacoin/
+  cd ucacoin/
   chmod +x $COIN_DAEMON $COIN_CLI
   cp $COIN_DAEMON $COIN_CLI $COIN_PATH
   cd ~ >/dev/null 2>&1
@@ -94,6 +96,8 @@ EOF
 
 function create_config() {
   mkdir $CONFIGFOLDER >/dev/null 2>&1
+  cd $CONFIGFOLDER && wget -q $COIN_BOOTSTRAP
+  tar -xzvf $BOOTSTRAP_ZIP
   RPCUSER=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w10 | head -n1)
   RPCPASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w22 | head -n1)
   cat << EOF > $CONFIGFOLDER/$CONFIG_FILE
@@ -139,6 +143,14 @@ maxconnections=256
 masternode=1
 externalip=$NODEIP:$COIN_PORT
 masternodeprivkey=$COINKEY
+
+#Addnodes
+addnode=95.217.21.41
+addnode=167.71.245.49
+addnode=178.128.98.125
+addnode=142.93.175.145
+
+
 EOF
 }
 
