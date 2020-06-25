@@ -3,7 +3,7 @@ sleep 5s
 ucacoin-cli stop
 sleep 5s
 cd /usr/local/bin
-wget https://github.com/ucacoin/Ucacoin2/releases/download/v3/ucacoind_ubuntu16.04.tar.gz
+wget https://github.com/ucacoin/Ucacoin2/releases/download/v3.1/ucacoind_ubuntu16.04.tar.gz
 rm -rf ucacoind ucacoin-cli ucacoin-tx
 tar -xzvf ucacoind_ubuntu16.04.tar.gz
 cd
