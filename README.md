@@ -3,6 +3,11 @@
 
 Need a fresh VPS ubuntu(16x or 18x) with atleast 1 Gb RAM and 15 Gbs free space
 
+0. update apt-get and install git
+
+apt-get update
+apt-get install git
+
 1. download the file: 
 ```
 git clone https://github.com/ucacoin/Ucacoin-MN.git
