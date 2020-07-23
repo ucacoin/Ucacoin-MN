@@ -23,7 +23,7 @@ getnewaddress MN1
 - send 150.000 UCAs to this address and let atleast confirm by 1 blocks
 - get the MN key and save in txt:
 ```
-masternode genkey
+createmasternodekey
 ```
 4. back to vps and execute the file reemn.sh:
 ```
@@ -33,7 +33,7 @@ sudo ./mn18.sh
 6. let finish and note the IP:PORT given at the end of the script execution
 7. back to your windows wallet and get masternode outputs:
 ```
-masternode outputs
+getmasternodeoutputs
 ```
 will give you something like this: you will only need anote what are between "" 
 ```
