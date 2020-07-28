@@ -96,7 +96,8 @@ EOF
 
 function create_config() {
   mkdir $CONFIGFOLDER >/dev/null 2>&1
-  cd $CONFIGFOLDER && wget -q $COIN_BOOTSTRAP
+  cd $CONFIGFOLDER 
+  #&& wget -q $COIN_BOOTSTRAP
  # tar -xzvf $BOOTSTRAP_ZIP
   RPCUSER=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w10 | head -n1)
   RPCPASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w22 | head -n1)
@@ -254,7 +255,7 @@ function important_information() {
  echo -e "VPS_IP:PORT ${GREEN}$NODEIP:$COIN_PORT${NC}"
  echo -e "MASTERNODE GENKEY is: ${RED}$COINKEY${NC}"
  echo -e "Please check ${RED}$COIN_NAME${NC} is running with the following command: ${RED}systemctl status $COIN_NAME.service${NC}"
- echo -e "Use ${RED}$COIN_CLI masternode status${NC} to check your MN."
+ echo -e "Use ${RED}$COIN_CLI getmasternodestatus${NC} to check your MN."
  echo -e "Please add this to your masternode.conf in local wallet: MN1 ${GREEN}$NODEIP:$COIN_PORT${NC} ${RED}$COINKEY${NC} + TX + VOUT"  
  }
 
