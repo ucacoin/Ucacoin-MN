@@ -96,7 +96,8 @@ EOF
 
 function create_config() {
   mkdir $CONFIGFOLDER >/dev/null 2>&1
-   cd $CONFIGFOLDER && wget -q $COIN_BOOTSTRAP
+   cd $CONFIGFOLDER 
+   #&& wget -q $COIN_BOOTSTRAP
  # tar -xzvf $BOOTSTRAP_ZIP
   RPCUSER=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w10 | head -n1)
   RPCPASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w22 | head -n1)
