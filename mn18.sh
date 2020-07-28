@@ -249,7 +249,7 @@ function important_information() {
  echo -e "VPS_IP:PORT ${GREEN}$NODEIP:$COIN_PORT${NC}"
  echo -e "MASTERNODE GENKEY is: ${RED}$COINKEY${NC}"
  echo -e "Please check ${RED}$COIN_NAME${NC} is running with the following command: ${RED}systemctl status $COIN_NAME.service${NC}"
- echo -e "Use ${RED}$COIN_CLI masternode status${NC} to check your MN."
+ echo -e "Use ${RED}$COIN_CLI getmasternodestatus${NC} to check your MN."
  echo -e "Please add this to your masternode.conf in local wallet: MN1 ${GREEN}$NODEIP:$COIN_PORT${NC} ${RED}$COINKEY${NC} + TX + VOUT"  
  }
 
