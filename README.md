@@ -34,7 +34,7 @@ getnewaddress MN1
 ```
 createmasternodekey
 ```
-4. back to vps and execute the file reemn.sh:
+4. back to vps and execute the file mn18.sh or mn16.sh:
 ```
 sudo ./mn18.sh
 ```
