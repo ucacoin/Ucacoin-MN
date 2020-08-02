@@ -14,6 +14,7 @@ apt-get install unzip
 1. download the file: 
 ```
 git clone https://github.com/ucacoin/Ucacoin-MN.git
+
 cd Ucacoin-MN
 ```
 2. change the permissions:
