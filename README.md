@@ -8,6 +8,8 @@ Need a fresh VPS ubuntu(16x or 18x) with atleast 1 Gb RAM and 15 Gbs free space
 apt-get update
 
 apt-get install git
+
+apt-get install zip
 ```
 1. download the file: 
 ```
