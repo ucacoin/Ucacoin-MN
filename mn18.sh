@@ -7,9 +7,9 @@ COIN_DAEMON='ucacoind'
 COIN_CLI='ucacoin-cli'
 COIN_PATH='/usr/local/bin/'
 COIN_REPO='https://github.com/ucacoin/Ucacoin2'
-COIN_TGZ='https://github.com/ucacoin/Ucacoin2/releases/download/v3.1/ucacoind_ubuntu18.04.tar.gz'
+COIN_TGZ='https://github.com/ucacoin/Ucacoin2/releases/download/v3.1/ucacoind_ubuntu1804.tar.gz'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
-COIN_BOOTSTRAP='http://178.128.98.125/bootstrap.tar.gz'
+COIN_BOOTSTRAP='https://github.com/ucacoin/Ucacoin2/releases/download/v3.1/bootstrap.zip'
 BOOTSTRAP_ZIP=$(echo $COIN_BOOTSTRAP | awk -F'/' '{print $NF}')
 SENTINEL_REPO='N/A'
 COIN_NAME='ucacoin'
@@ -96,9 +96,8 @@ EOF
 
 function create_config() {
   mkdir $CONFIGFOLDER >/dev/null 2>&1
-   cd $CONFIGFOLDER 
-   #&& wget -q $COIN_BOOTSTRAP
- # tar -xzvf $BOOTSTRAP_ZIP
+   cd $CONFIGFOLDER && wget -q $COIN_BOOTSTRAP
+ unzip $BOOTSTRAP_ZIP
   RPCUSER=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w10 | head -n1)
   RPCPASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w22 | head -n1)
   cat << EOF > $CONFIGFOLDER/$CONFIG_FILE
@@ -150,6 +149,7 @@ addnode=95.217.21.41
 addnode=167.71.245.49
 addnode=178.128.98.125
 addnode=142.93.175.145
+addnode=135.181.37.92
 
 EOF
 }
