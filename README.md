@@ -28,7 +28,7 @@ chmod +x mn16.sh (in case of Ubuntu 16)
 ```
 getnewaddress MN1
 ```
-- send 150.000 UCAs to this address and let atleast confirm by 1 blocks
+- send 300.000 UCAs to this address and let atleast confirm by 1 blocks
 - get the MN key and save in txt:
 ```
 createmasternodekey
@@ -56,22 +56,4 @@ EXAMPLE: 38.25.122.251:33210 7NEGGttKZojkAzViEYXXXxKTFdAtC2uSiMg8NSFqYVBtN6mYdU 
 9. save masternode conf file reopen wallet and in masternode section type START ALL
 10. need atleast 22 blocks to be confirmed and start to work
 
-# Uca MN Updater Script to Update Masternode in v3.0:
-
-For **Ubuntu 16.04**
-```
-wget -q https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/mn1604_updater.sh
-sudo chmod +x mn1604_updater.sh
-./mn1604_updater.sh
-```
-***
-
-For **Ubuntu 18.04**
-```
-wget -q https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/mn1804_updater.sh
-sudo chmod +x mn1804_updater.sh
-./mn1804_updater.sh
-```
-***
-
-enjoy :)
+ 
