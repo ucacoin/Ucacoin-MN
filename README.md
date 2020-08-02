@@ -9,7 +9,7 @@ apt-get update
 
 apt-get install git
 
-apt-get install zip
+apt-get install unzip
 ```
 1. download the file: 
 ```
