@@ -1,60 +1,107 @@
-# Uca-MN: Scripts to setup Masternode
+# Ucacoin Masternode Setup (Ubuntu 16.04 / 18.04)
+This guide will assist you in setting up a Ucacoin Masternode on a Linux Server running Ubuntu 16.04 / 18.04
+
+If you require further assistance, contact the support team at <a href="https://discord.gg/EemcMKf" target="_blank">Discord</a>
+***
+- [Ucacoin Masternode Setup](#ucacoin-masternode-setup)  
+  	* [Requirements](#requirements) 
+  * [Connecting to the VPS and installing the masternode script](#Connecting-to-the-VPS-and-installing-the-masternode-script)  
+         [1. Log into the VPS with **root**](#1-log-into-the-vps-with-root)  
+         [2. Git Installation](#2-git-installation)  
+         [3. Clone MN setup script](#3-clone-mn-setup-script)  
+         [4. Start MN setup script](#4-start-mn-setup-script)  
+         [5. Copy Masternode Private Key](#5-copy-masternode-private-key-from-vps-console-window-and-pres-enter)
+  * [Setup QT wallet](#setup-qt-wallet)  
+         [1. Create new receiving address and copy it](#1-create-new-receiving-address-and-copy-it)  
+	 [2. Send Collateral amount of UCACoin to copied address](#2-send-collateral-amount-of-ucacoin-to-copied-address)  
+	 [3. Get MN output and Set Masternode Configuration File](#3-open-console-get-mn-output-and-set-masternode-configuration-file-and-save-it)  
+	 [4. Wait at least 15 confirmation of transaction](#4-wait-at-least-15-confirmation-of-transaction)  
+         [5. Restart QT wallet](#5-restart-qt-wallet)  
+         [6. Start MN in QT wallet console](#6-start-mn-in-qt-wallet-console)  
+	 [7. Check Masternode Status in VPS](#7-check-masternode-status-in-vps)  
+
+***
+## Requirements
+- MN Collateral amount of UCA coins.
+- A VPS running Linux Ubuntu 16.04 or 18.04 with 1 CPU & 1GB Memory minimum (2gb Recommended) from [Vultr](https://www.vultr.com/?ref=8622028) or any other providers.
+- Ucacoin Wallet (Local Wallet)
+- An SSH Client (<a href="https://www.putty.org/" target="_blank">Putty</a> or <a href="https://dl.bitvise.com/BvSshClient-Inst.exe" target="_blank">Bitvise</a>)
+
+***
+## Connecting to the VPS and installing the masternode script
+***
+##### 1. Log into the VPS with **root**  
+[![Vps](https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/assets/1.png)]
+***
+##### 2. Git Installation:  
+- ```sudo apt-get install -y git-core```  
+
+[![Git](https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/assets/2.png)]
+***
+##### 3. Clone MN setup script: 
+- ```git clone https://github.com/ucacoin/Ucacoin-MN.git```  
+
+[![Script1](https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/assets/3.png)] 
+***
+##### 4. Start MN setup script: 
+- ```cd Ucacoin-MN && chmod +x ./ucacoin-3.2.0-mn.sh && ./ucacoin-3.2.0-mn.sh```
+   
+[![Script2](https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/assets/4.png)]  
+
+**Now ask for VPS Public IP Address** 
+[![Script3](https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/assets/5.png)]
+
+**Now you need to wait some time, while script preparing the VPS to setup**  
+***
+##### 5. Copy masternode private key from VPS console window and pres "Enter":
+[![Download Bitvise](https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/assets/6.png)] 
+
+- if you see this, you are on the right track:
+[![QT1](https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/assets/7.png)]
+
+- to check VPS daemon status, type: ```ucacoin-cli getinfo```
+[![QT2](https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/assets/8.png)]
+
+**Don't close this window!** 
+***		
+
+## Setup QT wallet
+##### 1. Create new receiving address and copy it
+[![QT3](https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/assets/9.png)] 
+
+***
+##### 2. Send Collateral amount of UCACoin to copied address
+[![QT4](https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/assets/10.png)]
+***
+##### 3. Open console Get MN output and set masternode configuration file and save it
+- ```mn1 VPS_IP:33210 masternode_genkey masternode_output output_index```:
+[![QT5](https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/assets/11.png)]
+***
+##### 4. Wait at least 15 confirmation of transaction
+[![QT6](https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/assets/12.png)]
+***
+##### 5. Restart QT wallet  
+- **it's important**
+***
+##### 6. Start MN in QT wallet console:
+- ```startmasternode alias false TEST_MN```
+
+[![QT7](https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/assets/13.png)]
+***
+##### 7. Check Masternode Status in VPS:
+- ```ucacoin-cli startmasternode local false``` 
+- ```ucacoin-cli getmasternodestatus```  
+[![QT8](https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/assets/14.png)]  
+***
+**Сongratulations you did it!**
 
 
-Need a fresh VPS ubuntu(16x or 18x) with atleast 1 Gb RAM and 15 Gbs free space
-```
-0. update apt-get and install git
-```
-apt-get update
+# Guide for UCACoin v3.2.0 MN Update:
 
-apt-get install git
-
-apt-get install unzip
+For **Ubuntu**
 ```
-1. download the file: 
+wget -q https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/ucacoin-3.2.0-mnupdate.sh
+sudo chmod +x ucacoin-3.2.0-mnupdate.sh
+./ucacoin-3.2.0-mnupdate.sh
 ```
-git clone https://github.com/ucacoin/Ucacoin-MN.git
-
-cd Ucacoin-MN
-```
-2. change the permissions:
-```
-chmod +x mn18.sh (in case of Ubuntu 18)
-OR
-chmod +x mn16.sh (in case of Ubuntu 16)
-
-```
-3. prepare the windows wallet:
-- go to debug console and type:
-```
-getnewaddress MN1
-```
-- send 300.000 UCAs to this address and let atleast confirm by 1 blocks
-- get the MN key and save in txt:
-```
-createmasternodekey
-```
-4. back to vps and execute the file mn18.sh or mn16.sh:
-```
-sudo ./mn18.sh
-```
-5. wait to ask genkey and put by control+V the info getted in 4.3 point and give enter to go on.
-6. let finish and note the IP:PORT given at the end of the script execution
-7. back to your windows wallet and get masternode outputs:
-```
-getmasternodeoutputs
-```
-will give you something like this: you will only need anote what are between "" 
-```
-txhash: "7a1ebb4baadf9ff39bbbfc2d58fd57ff15b65a5096069c8b232d3d312fb4xxxx",
-outputidx: 1
-```
-8. open the masternode conf file and put:
-```
-MN1 IP:PORT masternodekey masternodeouputs txnumber
-EXAMPLE: 38.25.122.251:33210 7NEGGttKZojkAzViEYXXXxKTFdAtC2uSiMg8NSFqYVBtN6mYdU 7a1ebb4baadf9ff39bbbfc2d58fd57ff15b65a5096069c8XXX3fb4cb5c 1
-```
-9. save masternode conf file reopen wallet and in masternode section type START ALL
-10. need atleast 22 blocks to be confirmed and start to work
-
- 
+***
