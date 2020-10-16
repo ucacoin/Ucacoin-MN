@@ -1,5 +1,5 @@
 #!/bin/bash
-# UCACoin Masternode Setup Script V3.2.0 for Ubuntu LTS
+# UCACoin Masternode Setup Script V3.3.0 for Ubuntu LTS
 #
 # Script will attempt to autodetect primary public IP address
 # and generate masternode private key unless specified in command line
@@ -47,7 +47,7 @@ function stop_daemon {
 genkey=$1
 clear
 
-echo -e "${GREEN} ------- UCACoin MASTERNODE INSTALLER v3.2.0--------+
+echo -e "${GREEN} ------- UCACoin MASTERNODE INSTALLER v3.3.0--------+
  |                                                  |
  |                                                  |::
  |       The installation will install and run      |::
@@ -130,8 +130,8 @@ fi
 #Installing Daemon
 cd ~
 rm -rf /usr/local/bin/ucacoin*
-wget https://github.com/ucacoin/Ucacoin2/releases/download/v3.2.0/ucacoind-3.2.0-daemon-ubuntu.tar.gz
-tar -xzvf ucacoind-3.2.0-daemon-ubuntu.tar.gz
+wget https://github.com/ucacoin/Ucacoin2/releases/download/v3.3.0/ucacoind-3.3.0-daemon-ubuntu.tar.gz
+tar -xzvf ucacoind-3.3.0-daemon-ubuntu.tar.gz
 sudo chmod -R 755 ucacoin-cli
 sudo chmod -R 755 ucacoind
 cp -p -r ucacoind /usr/local/bin

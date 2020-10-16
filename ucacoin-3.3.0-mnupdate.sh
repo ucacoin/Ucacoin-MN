@@ -6,9 +6,9 @@ ucacoin-cli stop
 systemctl stop ucacoin.service
 sleep 10
 rm -rf /usr/local/bin/ucacoin*
-mkdir UCA_3.2.0
-cd UCA_3.2.0
-wget https://github.com/ucacoin/Ucacoin2/releases/download/v3.2.0/ucacoind-3.2.0-daemon-ubuntu.tar.gz
+mkdir UCA_3.3.0
+cd UCA_3.3.0
+wget https://github.com/ucacoin/Ucacoin2/releases/download/v3.3.0/ucacoind-3.3.0-daemon-ubuntu.tar.gz
 tar -xzvf ucacoind-3.2.0-daemon-ubuntu.tar.gz
 mv ucacoind /usr/local/bin/ucacoind
 mv ucacoin-cli /usr/local/bin/ucacoin-cli
@@ -22,7 +22,7 @@ wget http://95.216.173.155/bootstrap.tar.gz
 tar -xzvf bootstrap.tar.gz
 
 cd ..
-rm -rf ~/.ucacoin/bootstrap.tar.gz ~/UCA_3.2.0
+rm -rf ~/.ucacoin/bootstrap.tar.gz ~/UCA_3.3.0
 systemctl start ucacoin.service
 sleep 10
 ucacoin-cli addnode 167.71.245.49 onetry
