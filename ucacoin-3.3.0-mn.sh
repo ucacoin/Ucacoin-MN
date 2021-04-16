@@ -130,8 +130,10 @@ fi
 #Installing Daemon
 cd ~
 rm -rf /usr/local/bin/ucacoin*
+rm -rf ucacoind-3.3.0-daemon-ubuntu.tar.gz
 wget https://github.com/ucacoin/Ucacoin2/releases/download/v3.3.0/ucacoind-3.3.0-daemon-ubuntu.tar.gz
 tar -xzvf ucacoind-3.3.0-daemon-ubuntu.tar.gz
+rm -rf ucacoind-3.3.0-daemon-ubuntu.tar.gz
 sudo chmod -R 755 ucacoin-cli
 sudo chmod -R 755 ucacoind
 cp -p -r ucacoind /usr/local/bin
@@ -173,11 +175,11 @@ done
     #Stopping daemon to create ucacoin.conf
     ucacoin-cli stop
     sleep 5
-cd ~/.ucacoin/ && rm -rf blocks chainstate sporks
-cd ~/.ucacoin/ && wget http://95.216.173.155/bootstrap.tar.gz
-cd ~/.ucacoin/ && tar -xzvf bootstrap.tar.gz
-sudo rm -rf ~/.ucacoin/bootstrap.tar.gz
-	
+cd ~/.ucacoin/ && rm -rf blocks chainstate sporks bootstrap.zip
+cd ~/.ucacoin/ && wget https://github.com/ucacoin/Ucacoin2/releases/download/v3.3.0/bootstrap.zip
+cd ~/.ucacoin/ && unzip bootstrap.zip
+sudo rm -rf ~/.ucacoin/bootstrap.zip
+
 # Create ucacoin.conf
 cat <<EOF > ~/.ucacoin/ucacoin.conf
 rpcuser=$rpcuser
