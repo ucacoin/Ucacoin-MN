@@ -44,7 +44,7 @@ If you require further assistance, contact the support team at <a href="https://
 [![Script1](https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/assets/3.png)] 
 ***
 ##### 4. Start MN setup script: 
-- ```cd Ucacoin-MN && chmod +x ./ucacoin-3.3.0-mn.sh && ./ucacoin-3.3.0-mn.sh```
+- ```cd Ucacoin-MN && chmod +x ./ucacoin-3.4.0-mn.sh && ./ucacoin-3.4.0-mn.sh```
    
 [![Script2](https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/assets/4.png)]  
 
@@ -96,12 +96,12 @@ If you require further assistance, contact the support team at <a href="https://
 **Сongratulations you did it!**
 
 
-# Guide for UCACoin v3.3.0 MN Update:
+# Guide for UCACoin v3.4.0 MN Update:
 
 For **Ubuntu**
 ```
-wget -q https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/ucacoin-3.3.0-mnupdate.sh
-sudo chmod +x ucacoin-3.3.0-mnupdate.sh
-./ucacoin-3.3.0-mnupdate.sh
+wget -q https://raw.githubusercontent.com/ucacoin/Ucacoin-MN/master/ucacoin-3.4.0-mnupdate.sh
+sudo chmod +x ucacoin-3.4.0-mnupdate.sh
+./ucacoin-3.4.0-mnupdate.sh
 ```
 ***
