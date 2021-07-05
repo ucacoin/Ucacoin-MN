@@ -8,8 +8,8 @@ sleep 10
 rm -rf /usr/local/bin/ucacoin*
 mkdir UCA_3.4.0
 cd UCA_3.4.0
-wget https://github.com/ucacoin/Ucacoin2/releases/download/v3.4.0/ucacoind-3.4.0-daemon-ubuntu.tar.gz
-tar -xzvf ucacoind-3.4.0-daemon-ubuntu.tar.gz
+wget https://github.com/ucacoin/Ucacoin2/releases/download/3.4.0/ucacoin-3.4.0-daemon-ubuntu.tar.gz
+tar -xzvf ucacoin-3.4.0-daemon-ubuntu.tar.gz
 mv ucacoind /usr/local/bin/ucacoind
 mv ucacoin-cli /usr/local/bin/ucacoin-cli
 chmod +x /usr/local/bin/ucacoin*
@@ -18,7 +18,7 @@ rm -rf ~/.ucacoin/chainstate
 rm -rf ~/.ucacoin/sporks
 rm -rf ~/.ucacoin/peers.dat
 cd ~/.ucacoin/
-wget https://github.com/ucacoin/Ucacoin2/releases/download/v3.4.0/bootstrap.zip
+wget https://github.com/ucacoin/Ucacoin2/releases/download/3.4.0/bootstrap.zip
 unzip bootstrap.zip
 
 cd ..

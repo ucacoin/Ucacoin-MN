@@ -130,14 +130,14 @@ fi
 #Installing Daemon
 cd ~
 rm -rf /usr/local/bin/ucacoin*
-rm -rf ucacoind-3.4.0-daemon-ubuntu.tar.gz
-wget https://github.com/ucacoin/Ucacoin2/releases/download/v3.4.0/ucacoind-3.4.0-daemon-ubuntu.tar.gz
-tar -xzvf ucacoind-3.4.0-daemon-ubuntu.tar.gz
-rm -rf ucacoind-3.4.0-daemon-ubuntu.tar.gz
+rm -rf ucacoin-3.4.0-daemon-ubuntu.tar.gz
+wget https://github.com/ucacoin/Ucacoin2/releases/download/3.4.0/ucacoin-3.4.0-daemon-ubuntu.tar.gz
+tar -xzvf ucacoin-3.4.0-daemon-ubuntu.tar.gz
+rm -rf ucacoin-3.4.0-daemon-ubuntu.tar.gz
 sudo chmod -R 755 ucacoin-cli
 sudo chmod -R 755 ucacoind
-cp -p -r ucacoind /usr/local/bin
-cp -p -r ucacoin-cli /usr/local/bin
+sudo cp -p -r ucacoind /usr/local/bin
+sudo cp -p -r ucacoin-cli /usr/local/bin
 
  ucacoin-cli stop
  sleep 5
@@ -176,7 +176,7 @@ done
     ucacoin-cli stop
     sleep 5
 cd ~/.ucacoin/ && rm -rf blocks chainstate sporks bootstrap.zip
-cd ~/.ucacoin/ && wget https://github.com/ucacoin/Ucacoin2/releases/download/v3.4.0/bootstrap.zip
+cd ~/.ucacoin/ && wget https://github.com/ucacoin/Ucacoin2/releases/download/3.4.0/bootstrap.zip
 cd ~/.ucacoin/ && unzip bootstrap.zip
 sudo rm -rf ~/.ucacoin/bootstrap.zip
 
