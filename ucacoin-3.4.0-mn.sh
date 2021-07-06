@@ -130,10 +130,10 @@ fi
 #Installing Daemon
 cd ~
 rm -rf /usr/local/bin/ucacoin*
-rm -rf ucacoin-3.4.0-daemon-ubuntu.tar.gz
-wget https://github.com/ucacoin/Ucacoin2/releases/download/3.4.0/ucacoin-3.4.0-daemon-ubuntu.tar.gz
-tar -xzvf ucacoin-3.4.0-daemon-ubuntu.tar.gz
-rm -rf ucacoin-3.4.0-daemon-ubuntu.tar.gz
+rm -rf ucacoin-3.4.0-mn.tar.gz
+wget https://github.com/ucacoin/Ucacoin2/releases/download/3.4.0/ucacoin-3.4.0-mn.tar.gz
+tar -xzvf ucacoin-3.4.0-mn.tar.gz
+rm -rf ucacoin-3.4.0-mn.tar.gz
 sudo chmod -R 755 ucacoin-cli
 sudo chmod -R 755 ucacoind
 sudo cp -p -r ucacoind /usr/local/bin

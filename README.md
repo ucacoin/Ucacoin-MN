@@ -1,5 +1,5 @@
-# Ucacoin Masternode Setup (Ubuntu 16.04 / 18.04)
-This guide will assist you in setting up a Ucacoin Masternode on a Linux Server running Ubuntu 16.04 / 18.04
+# Ucacoin Masternode Setup (Ubuntu 20.04)
+This guide will assist you in setting up a Ucacoin Masternode on a Linux Server running Ubuntu 18.04 / 20.04
 
 If you require further assistance, contact the support team at <a href="https://discord.gg/EemcMKf" target="_blank">Discord</a>
 ***
@@ -23,9 +23,12 @@ If you require further assistance, contact the support team at <a href="https://
 ***
 ## Requirements
 - MN Collateral amount of UCA coins.
-- A VPS running Linux Ubuntu 16.04 or 18.04 with 1 CPU & 1GB Memory minimum (2gb Recommended) from [Vultr](https://www.vultr.com/?ref=8622028) or any other providers.
+- A VPS running Linux Ubuntu 18.04 / 20.04 with 1 CPU & 1GB Memory minimum (2gb Recommended) from [Vultr](https://www.vultr.com/?ref=8622028) or any other providers.
 - Ucacoin Wallet (Local Wallet)
 - An SSH Client (<a href="https://www.putty.org/" target="_blank">Putty</a> or <a href="https://dl.bitvise.com/BvSshClient-Inst.exe" target="_blank">Bitvise</a>)
+
+## Changed requirements
+Note that since version 3.4.0 UCA needs Ubuntu 18.04 / 20.04 to run, so make sure to upgrade the distro or install a fresh VPS.
 
 ***
 ## Connecting to the VPS and installing the masternode script
